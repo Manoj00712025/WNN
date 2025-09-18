@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>World News Network</title>
+
+    <link rel="icon" href="Images/Icon.png">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav>
+
+        <h1>WORLD NEWS NETWORK</h1>
+
+    </nav>
+
+    <div class="main-box">
+
+        <section id="categories" class="sidebar">
+
+            <h2>Categories</h2>
+
+            <button class="category-button" data-category="general">All</button>
+
+            <button class="category-button" data-category="science">Science</button>
+
+            <button class="category-button" data-category="sports">Sports</button>
+
+            <button class="category-button" data-category="politics">Politics</button>
+
+            <button class="category-button" data-category="health">Health</button>
+
+            <button class="category-button" data-category="entertainment">Entertainment</button>
+
+            <button class="category-button" data-category="technology">Technology</button>
+
+            <button class="category-button" data-category="business">Business</button>
+
+        </section>
+
+        <section id="news-feed">
+
+            <div class="search-box">
+
+                <input id="search-input" type="text" placeholder="Search News!" oninput="debounced_search_news()">
+
+            </div>
+
+            <div id="loader" class="spinner center" style="display: none;">
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+                <div class="spinner-blade"></div>
+
+            </div>
+
+            <div id="articles-container"></div>
+
+        </section>
+
+        <section id="indian-news" class="sidebar">
+
+            <h2>Indian News</h2>
+
+            <div id="indian-news-container"></div>
+
+        </section>
+
+    </div>
+
+    <footer>
+
+        <p>© <a href="https://hitarthpathak.github.io/" target="_blank">Hitarth Pathak</a></p>
+
+    </footer>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
