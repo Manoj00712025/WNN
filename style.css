@@ -84,6 +84,10 @@ section {
     outline: none;
 }
 
+#indian-news {
+    position: relative;
+}
+
 .spinner {
     font-size: 28px;
     position: relative;

@@ -1,6 +1,7 @@
 let articles_container = document.getElementById("articles-container");
 let search_input = document.getElementById("search-input");
-let loader = document.getElementById("loader");
+let loader_1 = document.getElementById("loader-1");
+let loader_2 = document.getElementById("loader-2");
 let category_buttons = document.querySelectorAll(".category-button");
 let indian_news_container = document.getElementById("indian-news-container");
 
@@ -14,7 +15,9 @@ let articles_collection = [];
 
 window.addEventListener("load", () => {
 
-    start_loading();
+    start_loading_news_feed();
+
+    start_loading_indian_news();
 
     setTimeout(() => {
 
@@ -28,17 +31,31 @@ window.addEventListener("load", () => {
 
 // ------------------------------------------------------------------------------------------------
 
-function start_loading() {
+function start_loading_news_feed() {
 
     articles_container.innerHTML = "";
 
-    loader.style.display = "inline-block";
+    loader_1.style.display = "inline-block";
 
 };
 
-function stop_loading() {
+function stop_loading_news_feed() {
 
-    loader.style.display = "none";
+    loader_1.style.display = "none";
+
+};
+
+function start_loading_indian_news() {
+
+    indian_news_container.innerHTML = "";
+
+    loader_2.style.display = "inline-block";
+
+};
+
+function stop_loading_indian_news() {
+
+    loader_2.style.display = "none";
 
 };
 
@@ -64,7 +81,7 @@ const load_news = async () => {
     }
     finally {
 
-        stop_loading();
+        stop_loading_news_feed();
 
     }
 
@@ -131,7 +148,7 @@ let debounce_categoriize_news = debounce(categorize_news, 1000);
 
 search_input.addEventListener("input", () => {
 
-    start_loading();
+    start_loading_news_feed();
 
     debounced_search_news();
 
@@ -178,7 +195,7 @@ async function search_news() {
 
     }
 
-    stop_loading();
+    stop_loading_news_feed();
 
 };
 
@@ -190,7 +207,7 @@ category_buttons.forEach((button) => {
 
         let selected_category = button.getAttribute("data-category");
 
-        start_loading();
+        start_loading_news_feed();
 
         debounce_categoriize_news(selected_category);
 
@@ -239,7 +256,7 @@ async function categorize_news(category) {
 
     }
 
-    stop_loading();
+    stop_loading_news_feed();
 
 };
 
@@ -294,6 +311,11 @@ async function indian_news() {
     catch (error) {
 
         indian_news_container.textContent = "Failed To Find Indian News! Please Try Again Later!"
+
+    }
+    finally {
+
+        stop_loading_indian_news();
 
     }
 
