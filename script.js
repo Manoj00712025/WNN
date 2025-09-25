@@ -1,3 +1,6 @@
+let date = document.getElementById("date");
+let time = document.getElementById("time");
+let temperature = document.getElementById("temperature");
 let articles_container = document.getElementById("articles-container");
 let search_input = document.getElementById("search-input");
 let loader_1 = document.getElementById("loader-1");
@@ -7,13 +10,27 @@ let indian_news_container = document.getElementById("indian-news-container");
 
 // ------------------------------------------------------------------------------------------------
 
-const key = "61da66450c8e42fdbf543e90f2d33c1a";
-const url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=50&apiKey=${key}`;
+const news_key = "61da66450c8e42fdbf543e90f2d33c1a";
+const news_url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=50&apiKey=${news_key}`;
 let articles_collection = [];
 
 // ------------------------------------------------------------------------------------------------
 
 window.addEventListener("load", () => {
+
+    let get_date = new Date();
+    date.textContent = get_date.toDateString();
+
+    setInterval(() => {
+        let get_time = new Date();
+        time.textContent = get_time.toLocaleTimeString();
+    }, 1000);
+
+    setTimeout(() => {
+
+        get_weather();
+
+    }, 1000);
 
     start_loading_news_feed();
 
@@ -28,6 +45,50 @@ window.addEventListener("load", () => {
     }, 1000);
 
 });
+
+// --------------------------------------------------------------------------------------------------
+
+async function get_weather() {
+
+    let weather_key = "4ec67467a9b9f37556f4543c9a731e20";
+
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(async (position) => {
+
+            let latitude = position.coords.latitude;
+            let longitude = position.coords.longitude;
+
+            let weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weather_key}&units=metric`;
+
+            try {
+
+                let promise = await fetch(weather_url);
+
+                let data = await promise.json();
+
+                temperature.textContent = data.main.temp + " °C";
+
+            } catch (error) {
+
+                temperature.textContent = "Failed To Load Temperature!";
+
+            }
+
+        }, async (error) => {
+
+            temperature.textContent = "Location Denied By User";
+
+        });
+
+    }
+    else {
+
+        temperature.textContent = "Failed To Locate Your Location!";
+
+    }
+
+};
 
 // ------------------------------------------------------------------------------------------------
 
@@ -61,7 +122,7 @@ function stop_loading_indian_news() {
 
 // ------------------------------------------------------------------------------------------------
 
-const load_news = async () => {
+async function load_news() {
 
     try {
 
@@ -95,6 +156,10 @@ function load_articles(articles) {
 
         let article_element = document.createElement('article');
 
+        let image = document.createElement("img");
+        image.src = article.urlToImage;
+        image.alt = "Image Not Available";
+
         let title = document.createElement('h3');
 
         let link = document.createElement("a");
@@ -108,6 +173,7 @@ function load_articles(articles) {
         let description = document.createElement('p');
         description.textContent = article.description || "No Description Available!";
 
+        article_element.appendChild(image);
         article_element.appendChild(title);
         article_element.appendChild(hr);
         article_element.appendChild(description);
@@ -164,7 +230,7 @@ async function search_news() {
 
         try {
 
-            let search_url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(search_query)}&language=en&pageSize=50&apiKey=${key}`;
+            let search_url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(search_query)}&language=en&pageSize=50&apiKey=${news_key}`;
 
             let promise = await fetch(search_url);
 
@@ -230,7 +296,7 @@ async function categorize_news(category) {
 
         try {
 
-            let category_url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&category=${category}&apiKey=${key}`;
+            let category_url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=50&category=${category}&apiKey=${news_key}`;
 
             let promise = await fetch(category_url);
 
@@ -280,7 +346,7 @@ async function indian_news() {
 
     try {
 
-        let indian_url = `https://newsapi.org/v2/everything?q=india&language=en&pageSize=10&apiKey=${key}`;
+        let indian_url = `https://newsapi.org/v2/everything?q=india&language=en&pageSize=10&apiKey=${news_key}`;
 
         let promise = await fetch(indian_url);
 
@@ -329,6 +395,10 @@ function load_indian_news(articles) {
 
         let article_element = document.createElement('article');
 
+        let image = document.createElement("img");
+        image.src = article.urlToImage;
+        image.alt = "Image Not Available";
+
         let title = document.createElement('h3');
 
         let link = document.createElement("a");
@@ -342,6 +412,7 @@ function load_indian_news(articles) {
         let description = document.createElement('p');
         description.textContent = article.description || "No Description Available!";
 
+        article_element.appendChild(image);
         article_element.appendChild(title);
         article_element.appendChild(hr);
         article_element.appendChild(description);

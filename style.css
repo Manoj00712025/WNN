@@ -20,9 +20,21 @@ a:hover {
 nav {
     height: auto;
     width: 100%;
-    background-color: rgba(130, 130, 130, 0.300);
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 1rem;
+}
+
+nav h1 {
+    font-size: 3rem;
+}
+
+nav .updates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .main-box {
@@ -54,11 +66,15 @@ section {
     height: auto;
     width: 100%;
     padding: 0.5rem;
+    background-color: black;
+    color: white;
     cursor: pointer;
 }
 
 .active-category {
-    background-color: rgba(130, 130, 130, 0.500);
+    border: 2px solid black !important;
+    background-color: white !important;
+    color: black !important;
 }
 
 #news-feed {
@@ -229,17 +245,21 @@ section {
     min-height: 500px;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 1rem;
-    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 section article {
     border: 1px solid rgba(130, 130, 130, 0.300);
     height: auto;
-    width: 100%;
+    width: 50%;
     padding: 1rem;
+}
+
+article img {
+    height: auto;
+    width: 100%;
 }
 
 article hr {
@@ -260,10 +280,60 @@ article p {
     flex-direction: column;
 }
 
+#indian-news-container article {
+    border: 1px solid rgba(130, 130, 130, 0.300);
+    height: auto;
+    width: 100%;
+    padding: 1rem;
+}
+
 footer {
     height: auto;
     width: 100%;
-    background-color: rgba(130, 130, 130, 0.300);
+    background-color: black;
+    color: white;
+    padding: 3rem;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer h1 {
+    font-size: 1rem;
+}
+
+footer .links,
+.social-links {
+    height: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.links .link {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.links .link:hover {
+    text-decoration: underline;
+}
+
+.social-links img {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+}
+
+footer p {
+    margin-top: 3rem;
     text-align: center;
-    padding: 1rem;
 }
