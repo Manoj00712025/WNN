@@ -126,7 +126,7 @@ async function load_news() {
 
     try {
 
-        let promise = await fetch(url);
+        let promise = await fetch(news_url);
 
         let data = await promise.json();
 
