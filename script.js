@@ -10,7 +10,7 @@ let indian_news_container = document.getElementById("indian-news-container");
 
 // ------------------------------------------------------------------------------------------------
 
-const cors_proxy = "https://cors-anywhere.herokuapp.com/";
+const cors_proxy = "https://api.allorigins.win/raw?url=";
 
 // ------------------------------------------------------------------------------------------------
 
