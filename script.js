@@ -10,8 +10,12 @@ let indian_news_container = document.getElementById("indian-news-container");
 
 // ------------------------------------------------------------------------------------------------
 
+const cors_proxy = "https://cors-anywhere.herokuapp.com/";
+
+// ------------------------------------------------------------------------------------------------
+
 const news_key = "61da66450c8e42fdbf543e90f2d33c1a";
-const news_url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=50&apiKey=${news_key}`;
+const news_url = `${cors_proxy}https://newsapi.org/v2/top-headlines?language=en&pageSize=50&apiKey=${news_key}`;
 let articles_collection = [];
 
 // ------------------------------------------------------------------------------------------------
@@ -59,7 +63,7 @@ async function get_weather() {
             let latitude = position.coords.latitude;
             let longitude = position.coords.longitude;
 
-            let weather_url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weather_key}&units=metric`;
+            let weather_url = `${cors_proxy}https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weather_key}&units=metric`;
 
             try {
 
